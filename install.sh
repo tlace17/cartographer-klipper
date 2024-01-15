@@ -6,8 +6,8 @@
 # Copyright (C) 2023 Beacon <beacon3d.com>
 # This file may be distributed under the terms of the GNU GPLv3 license.
 
-KDIR="${HOME}/klipper"
-KENV="${HOME}/klippy-env"
+KDIR="/usr/share/klipper"
+KENV="/usr/share/klippy-env"
 
 BKDIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
