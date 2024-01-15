@@ -1,2 +1,2 @@
 # klipper python virtual environment requirements for IDM
-numpy>=1.16.6
+numpy>=1.16.4
