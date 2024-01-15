@@ -10,3 +10,8 @@ if grep -q "include start_macro_KAMP.cfg" /usr/data/printer_config/printer.cfg |
 else
     sed -i '/\[include printer_params.cfg\]/a\[start_end.cfg]\' /usr/data/printer_config/printer.cfg
 fi
+mkdir /usr/data/backups/
+mv /usr/data/printer_config/sensorless.cfg /usr/data/backups/
+curl -o /usr/data/printer_config/sensorless.cfg https://github.com/K1-Klipper/cartographer-klipper/raw/master/sensorless.cfg 
+curl -o /usr/data/printer_config/carto_macro.cfg https://raw.githubusercontent.com/K1-Klipper/cartographer-klipper/master/cartographer_macro.cfg
+sed '/\[mcu\]/i\[include cartographer_macro.cfg]' /usr/data/printer_config/printer.cfg
