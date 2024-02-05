@@ -9,7 +9,7 @@ sed -i '/\[include printer_params.cfg\]/a\[include cartographer_macro.cfg]\' /us
 if grep -q "include start_macro_KAMP.cfg" /usr/data/printer_data/config/printer.cfg || grep -q "include start_macro.cfg" /usr/data/printer_data/config/printer.cfg; then
     sed -i 's/\[include start_(macro|macro_KAMP)\.cfg\]/[include start_stop.cfg]/g' /usr/data/printer_data/config/printer.cfg
 else
-    sed -i '/\[include printer_params.cfg\]/a\[start_end.cfg]\' /usr/data/printer_data/config/printer.cfg
+    sed -i '/\[include printer_params.cfg\]/a\[include start_end.cfg]\' /usr/data/printer_data/config/printer.cfg
 fi
 mkdir /usr/data/backups/
 mv /usr/data/printer_data/config/sensorless.cfg /usr/data/backups/
