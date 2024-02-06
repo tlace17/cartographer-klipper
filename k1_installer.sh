@@ -1,4 +1,8 @@
 #!/bin/sh
+if [ ! -d "/usr/data/klipper" ]; then
+  echo "Please install vanilla klipper update from here: https://github.com/K1-Klipper/installer_script_k1_and_max and try again"
+  exit 1
+fi
 git config --global http.sslVerify false
 git clone https://github.com/K1-Klipper/cartographer-klipper.git /usr/data/cartographer-klipper
 chmod +x /usr/data/cartographer-klipper/install.sh
