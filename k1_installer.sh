@@ -7,6 +7,10 @@ git config --global http.sslVerify false
 git clone https://github.com/K1-Klipper/cartographer-klipper.git /usr/data/cartographer-klipper
 chmod +x /usr/data/cartographer-klipper/install.sh
 sh /usr/data/cartographer-klipper/install.sh
+if [ ! -d "/usr/data/klipper/klippy/extras/cartographer.py" ]; then
+  echo "I cant find the cartographer.py file something has gone horribly wrong. Please seek help in the discord"
+  exit 1
+fi
 sed -i '/\[gcode_macro START_PRINT\]/,/CX_PRINT_DRAW_ONE_LINE/d' /usr/data/printer_data/config/gcode_macro.cfg
 wget --no-check-certificate -P  /usr/data/printer_data/config/ https://raw.githubusercontent.com/K1-Klipper/cartographer-klipper/master/start_end.cfg
 sed -i '/\[include printer_params.cfg\]/a\[include cartographer_macro.cfg]\' /usr/data/printer_data/config/printer.cfg
