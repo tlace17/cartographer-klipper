@@ -14,10 +14,15 @@ clone_cartographer() {
   sh /usr/data/cartographer-klipper/install.sh
 }
 
-check_cartographer_symlink() {
-  if [ ! -e "$(readlink "/usr/data/klipper/klippy/extras/cartographer.py")" ]; then
-    echo "Error: The target file for the symlink /usr/data/klipper/klippy/extras/cartographer.py doesn't exist or is inaccessible."
-    exit 1
+create_cartographer_symlink() {
+  if [ ! -e "/usr/data/klipper/klippy/extras/cartographer.py" ]; then
+    if [ -e "/usr/data/cartographer-klipper/cartographer.py" ]; then
+      ln -sf "/usr/data/cartographer-klipper/cartographer.py" "/usr/data/klipper/klippy/extras/cartographer.py" || { echo "Error: Failed to create symlink"; exit 1; }
+      echo "klippy/extras/cartographer.py" >> /usr/data/klipper/.gitignore
+    else
+      echo "Error: cartographer.py not found in /usr/data/cartographer-klipper/"
+      exit 1
+    fi
   fi
 }
 
