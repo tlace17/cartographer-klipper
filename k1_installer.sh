@@ -60,7 +60,7 @@ update_klipper_service() {
 
 check_klipper_directory
 clone_cartographer
-check_cartographer_symlink
+create_cartographer_symlink
 update_config_files
 backup_sensorless_config
 update_klipper_service
