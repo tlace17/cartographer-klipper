@@ -34,7 +34,9 @@ update_config_files() {
 }
 
 backup_sensorless_config() {
+  if [ ! -d "/usr/data/backups/" ]; then
   mkdir -p /usr/data/backups/
+  fi
   mv /usr/data/printer_data/config/sensorless.cfg /usr/data/backups/
   wget --no-check-certificate -P  /usr/data/printer_data/config/ https://raw.githubusercontent.com/K1-Klipper/cartographer-klipper/master/sensorless.cfg
   wget --no-check-certificate -P  /usr/data/printer_data/config/ https://raw.githubusercontent.com/K1-Klipper/cartographer-klipper/master/cartographer_macro.cfg
