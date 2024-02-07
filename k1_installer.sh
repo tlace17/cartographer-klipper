@@ -18,6 +18,20 @@ gcode_shell_check(){
   fi
 }
 
+entware_check(){
+  if ! [ -f "/opt/bin/opkg" ]; then
+    echo "File '/opt/bin/opkg' not found. Fetching files..."
+    wget --no-check-certificate -qO /tmp/generic.sh https://raw.githubusercontent.com/Guilouz/Creality-K1-and-K1-Max/main/Scripts/files/entware/generic.sh
+    chmod +x /tmp/generic.sh
+    /tmp/generic.sh
+
+    if [ $? -ne 0 ]; then
+      echo "Error: Failed to install EntWare"
+      exit 1  
+    fi
+  fi
+}
+
 clone_cartographer() {
   git config --global http.sslVerify false
   git clone https://github.com/K1-Klipper/cartographer-klipper.git /usr/data/cartographer-klipper
@@ -71,6 +85,7 @@ update_klipper_service() {
 
 check_klipper_directory
 gcode_shell_check
+entware_check
 clone_cartographer
 create_cartographer_symlink
 update_config_files
