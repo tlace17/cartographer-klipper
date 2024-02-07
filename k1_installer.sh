@@ -30,6 +30,7 @@ entware_check(){
       exit 1  
     fi
   fi
+  opkg install mjpg-streamer mjpg-streamer-input-http mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-streamer-www
 }
 
 clone_cartographer() {
