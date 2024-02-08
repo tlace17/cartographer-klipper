@@ -15,17 +15,16 @@
     ```
 <br><br/>
 2. Open an ssh connection and type:
-     ```
-     ls /dev/serial/by-id/
-     ```
-      **Copy the output from this into a notepad for later.**
+```
+    ls /dev/serial/by-id/
+```
+   **Copy the output from this into a notepad for later.**
      <br><br/>
 <br><br/>
 3. Add the following to your printer.cfg includes if it does not already exist:
 
-    ```
-    [include KAMP_Settings.cfg]                _ \
-    ```
+     [include KAMP_Settings.cfg]
+    
 <br><br/>
 
 4. Inside your printer.cfg remove anything related to PRtouch (ie. [prtouch_v2], [prtouch default]) , this includes anything below the save config section. (the section that looks like #*#)
