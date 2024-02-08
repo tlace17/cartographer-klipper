@@ -33,6 +33,16 @@ entware_check(){
   opkg install mjpg-streamer mjpg-streamer-input-http mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-streamer-www
 }
 
+kamp_check(){
+  if [[ ! -d "/usr/data/KAMP-for-K1-Series/" ]]; then
+  git clone https://github.com/Guilouz/KAMP-for-K1-Series.git /usr/data/ || {
+    echo "Error: Git clone failed. Exiting..."
+    exit 1
+  }
+  cp KAMP-for-K1-Series/Configuration/KAMP_Settings.cfg /usr/data/printer_data/config/
+  fi
+}
+
 clone_cartographer() {
   git config --global http.sslVerify false
   git clone https://github.com/K1-Klipper/cartographer-klipper.git /usr/data/cartographer-klipper
@@ -87,6 +97,7 @@ update_klipper_service() {
 check_klipper_directory
 gcode_shell_check
 entware_check
+kamp_check
 clone_cartographer
 create_cartographer_symlink
 update_config_files
