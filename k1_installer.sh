@@ -46,8 +46,6 @@ kamp_check(){
 clone_cartographer() {
   git config --global http.sslVerify false
   git clone https://github.com/K1-Klipper/cartographer-klipper.git /usr/data/cartographer-klipper
-  chmod +x /usr/data/cartographer-klipper/install.sh
-  sh /usr/data/cartographer-klipper/install.sh
 }
 
 create_cartographer_symlink() {
