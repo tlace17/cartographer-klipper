@@ -22,17 +22,17 @@
     ```
 <br><br/>
 2. Open an ssh connection and type:
-     ```
+
      ls /dev/serial/by-id/
-     ```
-      **Copy the output from this into a notepad for later.**
+     
+   **Copy the output from this into a notepad for later.**
      <br><br/>
 <br><br/>
 3. Add the following to your printer.cfg includes if it does not already exist:
 
-    ```
+
     [include KAMP_Settings.cfg]                _ \
-    ```
+
 <br><br/>
 
 4. Inside your printer.cfg remove anything related to PRtouch (ie. [prtouch_v2], [prtouch default]) , this includes anything below the save config section. (the section that looks like #*#)
@@ -105,7 +105,7 @@
 # First Steps and Calibration:
 1. Move your bed plate 2-3 mm away from the nozzle \
 <br><br/>
-2. On the homescreen of your web UIX, press the CARTO_CALIBRATE macro and wait for the Z offset wizard to pop up.
+2. On the homescreen of your web UIX, press the ```CARTO_CALIBRATE``` macro and wait for the Z offset wizard to pop up.
 <br><br/>
 Follow the [Paper Test Method](https://www.klipper3d.org/Bed_Level.html#the-paper-test) 
 <br><br/>
@@ -123,7 +123,7 @@ If your Z endstop is “OPEN” you are safe to continue however if it is “TRI
 4. If you have verified that your Z endstop is functioning correctly, please home all. If the nozzle crashes please e-stop the printer and re-try from step 1.
 <br><br/>
 <br><br/>
-5. You may now run CARTO_BED_MESH to produce your first mesh! Save this one complete, make any tramming adjustments you require to make the bed flat. It is expected you will have up to 1.4mm variance from PRTouch as there is a known issue with their mesh accuracy.
+5. You may now run ```CARTO_BED_MESH``` to produce your first mesh! Save this one complete, make any tramming adjustments you require to make the bed flat. It is expected you will have up to 1.4mm variance from PRTouch as there is a known issue with their mesh accuracy.
 <br><br/>
 <br><br/>
 6. Once you have your first bed mesh you will need to change your machine settings in your slicer Start GCODE to the following:
